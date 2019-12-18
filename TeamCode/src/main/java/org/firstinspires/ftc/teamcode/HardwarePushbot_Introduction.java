@@ -56,6 +56,7 @@ public class HardwarePushbot_Introduction
 
     public DcMotor  rightarm    = null;
     public static final double ARM_DOWN_POWER  = -0.45 ;
+    public DcMotor arm = null;
 
 //     local OpMode members.
     HardwareMap hwMap           =  null;
@@ -72,7 +73,13 @@ public class HardwarePushbot_Introduction
         // Save reference to Hardware map
         hwMap = ahwMap;
 
+        hwMap.get(DcMotor.class,"arm");
+
+        arm.setPower(0);
+
+        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     /*    Step 1) Define and Initialize Motors
+
         Example: leftDrive  = hwMap.get(DcMotor.class, "left_drive");
 
                     leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors

@@ -87,6 +87,8 @@ public class PushbotAutoDriveByTime_Linear_Introduction extends LinearOpMode {
 
 
         // Step 1:  Drive forward for 3 seconds
+        robot.arm.setPower(1);
+        sleep(500);
 
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
@@ -99,7 +101,7 @@ public class PushbotAutoDriveByTime_Linear_Introduction extends LinearOpMode {
         // Step 3:  Drive Backwards for 1 Second
 
 
-       
+
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
