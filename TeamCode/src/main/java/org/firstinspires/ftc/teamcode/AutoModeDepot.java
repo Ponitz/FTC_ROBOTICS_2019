@@ -75,75 +75,75 @@ public class AutoModeDepot extends LinearOpMode {
         waitForStart();
 
 
-        while (true)
-        {
-            if (robot.limitSwitch.getState()){
-                telemetry.addData("SWITCH", "CLOSED");
-                sleep(1500);
-                robot.lift.setPower(-1);
-                break;
-
-            }
-            else{
-                telemetry.addData("SWITCH", "OPEN");
-                robot.lift.setPower(1);
-            }
-
-        }
-
-//        //robot turns slightly to escape lift hook
-//        robot.leftbackDrive.setPower(-0.8);
-//        robot.leftfrontDrive.setPower(-0.8);
-//        robot.rightbackDrive.setPower(0);
-//        robot.rightfrontDrive.setPower(0);
-////        sleep(250);
-//        //robot moves forward slighty
-//        robot.leftfrontDrive.setPower(0.8);
-//        robot.leftbackDrive.setPower(0.8);
-//        robot.rightfrontDrive.setPower(0.8);
-//        robot.rightbackDrive.set-Power(0.8);
-//        sleep(200);
-        robot.rightfrontDrive.setPower(0.8);
-        robot.rightbackDrive.setPower(0.8);
-        robot.leftfrontDrive.setPower(-0.8);
-        robot.leftbackDrive.setPower(-0.8);
-        sleep(500);
-        //robot turn 180 dregrees
-        robot.rightbackDrive.setPower(1);
-        robot.rightfrontDrive.setPower(1);
-        robot.leftbackDrive.setPower(1);
-        robot.leftbackDrive.setPower(1);
-        sleep(1000);
-//        //robot turns left 45 degrees
-//        robot.rightbackDrive.setPower(-0.8);
-//        robot.rightfrontDrive.setPower(-0.8);
-//        robot.leftbackDrive.setPower(0);
-//        robot.leftbackDrive.setPower(0);
-//        sleep(625);
-//        //Robot goes forward
-        robot.rightfrontDrive.setPower(-0.8);
-        robot.rightbackDrive.setPower(-0.8);
-        robot.leftfrontDrive.setPower(0.8);
-        robot.leftbackDrive.setPower(0.8);
-        sleep(1000);
-
-//        //robot turns right 90 degrees
-//        robot.rightbackDrive.setPower(0);
-//        robot.rightfrontDrive.setPower(0);
-//        robot.leftbackDrive.setPower(0.8);
-//        robot.leftbackDrive.setPower(0.8);
-//        sleep(1250);
-//        //robot moves forward slightly
+//        while (true)
+//        {
+//            if (robot.limitSwitch.getState()){
+//                telemetry.addData("SWITCH", "CLOSED");
+//                sleep(1500);
+//                robot.lift.setPower(-1);
+//                break;
+//
+//            }
+//            else{
+//                telemetry.addData("SWITCH", "OPEN");
+//                robot.lift.setPower(1);
+//            }
+//
+//        }
+//
+////        //robot turns slightly to escape lift hook
+////        robot.leftbackDrive.setPower(-0.8);
+////        robot.leftfrontDrive.setPower(-0.8);
+////        robot.rightbackDrive.setPower(0);
+////        robot.rightfrontDrive.setPower(0);
+//////        sleep(250);
+////        //robot moves forward slighty
+////        robot.leftfrontDrive.setPower(0.8);
+////        robot.leftbackDrive.setPower(0.8);
+////        robot.rightfrontDrive.setPower(0.8);
+////        robot.rightbackDrive.set-Power(0.8);
+////        sleep(200);
 //        robot.rightfrontDrive.setPower(0.8);
 //        robot.rightbackDrive.setPower(0.8);
 //        robot.leftfrontDrive.setPower(-0.8);
 //        robot.leftbackDrive.setPower(-0.8);
-//        sleep(750);
-//        //robot drops marker
-        robot.topArm.setPower(1);
-        sleep(500);
-
-
+//        sleep(500);
+//        //robot turn 180 dregrees
+//        robot.rightbackDrive.setPower(1);
+//        robot.rightfrontDrive.setPower(1);
+//        robot.leftbackDrive.setPower(1);
+//        robot.leftbackDrive.setPower(1);
+//        sleep(1000);
+////        //robot turns left 45 degrees
+////        robot.rightbackDrive.setPower(-0.8);
+////        robot.rightfrontDrive.setPower(-0.8);
+////        robot.leftbackDrive.setPower(0);
+////        robot.leftbackDrive.setPower(0);
+////        sleep(625);
+////        //Robot goes forward
+//        robot.rightfrontDrive.setPower(-0.8);
+//        robot.rightbackDrive.setPower(-0.8);
+//        robot.leftfrontDrive.setPower(0.8);
+//        robot.leftbackDrive.setPower(0.8);
+//        sleep(1000);
+//
+////        //robot turns right 90 degrees
+////        robot.rightbackDrive.setPower(0);
+////        robot.rightfrontDrive.setPower(0);
+////        robot.leftbackDrive.setPower(0.8);
+////        robot.leftbackDrive.setPower(0.8);
+////        sleep(1250);
+////        //robot moves forward slightly
+////        robot.rightfrontDrive.setPower(0.8);
+////        robot.rightbackDrive.setPower(0.8);
+////        robot.leftfrontDrive.setPower(-0.8);
+////        robot.leftbackDrive.setPower(-0.8);
+////        sleep(750);
+////        //robot drops marker
+//        robot.topArm.setPower(1);
+//        sleep(500);
+//
+//
 
 
     }

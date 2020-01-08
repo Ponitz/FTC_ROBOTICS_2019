@@ -75,24 +75,24 @@ public class AutoModeCrater extends LinearOpMode {
         waitForStart();
 
 
-        while (true)
-        {
-            if (robot.limitSwitch.getState()){
-                telemetry.addData("SWITCH", "CLOSED");
-                robot.lift.setPower(0);
-
-                break;
-
-            }
-            else{
-                telemetry.addData("SWITCH", "OPEN");
-                robot.lift.setPower(1);
-            }
-
-        }
-
-        robot.lift.setPower(1);
-        sleep(750);
+//        while (true)
+//        {
+//            if (robot.limitSwitch.getState()){
+//                telemetry.addData("SWITCH", "CLOSED");
+//                robot.lift.setPower(0);
+//
+//                break;
+//
+//            }
+//            else{
+//                telemetry.addData("SWITCH", "OPEN");
+//                robot.lift.setPower(1);
+//            }
+//
+//        }
+//
+//        robot.lift.setPower(1);
+//        sleep(750);
 
 
     }

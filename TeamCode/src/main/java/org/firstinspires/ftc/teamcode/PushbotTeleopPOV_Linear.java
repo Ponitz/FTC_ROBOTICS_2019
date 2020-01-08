@@ -131,29 +131,27 @@ public class PushbotTeleopPOV_Linear extends LinearOpMode {
 
 
             // Use gamepad bumper to move arm up and down
-            if (gamepad1.right_bumper)
-                robot.bottomArm.setPower(robot.ARM_UP_POWER);
-            else if (gamepad1.left_bumper)
-                robot.bottomArm.setPower(robot.ARM_DOWN_POWER);
-            else
-                robot.bottomArm.setPower(-0.1);
-
-            // Use gamepad trigger to move arm up and down
-            if(gamepad1.right_trigger > 0){
-                robot.topArm.setPower(gamepad1.right_trigger / 2);}
-
-            else if(gamepad1.left_trigger > 0){
-                robot.topArm.setPower(-gamepad1.left_trigger / 2);}
-
-            else
-                robot.topArm.setPower(-0.4);
+//            if (gamepad1.right_bumper)
+//                robot.bottomArm.setPower(robot.ARM_UP_POWER);
+//            else if (gamepad1.left_bumper)
+//                robot.bottomArm.setPower(robot.ARM_DOWN_POWER);
+//            else
+//                robot.bottomArm.setPower(-0.1);
+//
+//            // Use gamepad trigger to move arm up and down
+//            if(gamepad1.right_trigger > 0){
+//                robot.topArm.setPower(gamepad1.right_trigger / 2);}
+//
+//            else if(gamepad1.left_trigger > 0){
+//                robot.topArm.setPower(-gamepad1.left_trigger / 2);}
+//
+//            else
+//                robot.topArm.setPower(-0.4);
 
             // Use gamepad buttons to move lift up and down
-            if (gamepad1.a)
-                robot.lift.setPower(robot.LIFT_UP_POWER);
-            else if (gamepad1.b)
-                robot.lift.setPower(robot.LIFT_DOWN_POWER);
-            else robot.lift.setPower(0);
+//            if (gamepad1.a)
+//                robot.arm.setPower(.75);
+
 
 
             // Send telemetry message to signify robot running;

@@ -55,14 +55,15 @@ public class HardwarePushbot
 {
     /* Public OpMode members. */
 //    public DcMotor catapult = null;
-    public DcMotor  topArm   = null;
-    public DcMotor  bottomArm  = null;
+    public DcMotor  leftArm   = null;
+    public DcMotor  rightArm  = null;
     public DcMotor leftfrontDrive = null;
     public DcMotor leftbackDrive = null;
     public DcMotor rightfrontDrive = null;
     public DcMotor rightbackDrive = null;
-    public DcMotor lift = null;
-    DigitalChannel limitSwitch = null;
+    public Servo clawn = null;
+
+
 
 
 //    public DcMotor  leftArm     = null;
@@ -104,19 +105,23 @@ public class HardwarePushbot
         leftbackDrive =hwMap.get(DcMotor.class, "leftback");
         rightfrontDrive = hwMap.get(DcMotor.class, "rightfront");
         rightbackDrive =hwMap.get(DcMotor.class, "rightback");
-        topArm = hwMap.get(DcMotor.class, "topArm");
-        bottomArm = hwMap.get(DcMotor.class, "bottomArm");
-        lift = hwMap.get(DcMotor.class,"lift");
-        limitSwitch = hwMap.get(DigitalChannel.class, "limit1");
+        leftArm =hwMap.get(DcMotor.class,"leftarm");
+        rightArm =hwMap.get(DcMotor.class,"rightarm");
+        clawn =hwMap.get(Servo.class,"claw");
+
+//        limitSwitch = hwMap.get(DigitalChannel.class, "limit1");
 
 //        // Set all motors to zero power
         leftfrontDrive.setPower(0);
         leftbackDrive.setPower(0);
         rightfrontDrive.setPower(0);
         rightbackDrive.setPower(0);
-        topArm.setPower(0);
-        bottomArm.setPower(0);
-        lift.setPower(0);
+        rightArm.setPower(0);
+        leftArm.setPower(0);
+        clawn.setPosition(0);
+
+//        lift.setPower(0);
+
 //        rightDrive.setPower(0);
 //        leftArm.setPower(0);
 //
@@ -126,8 +131,9 @@ public class HardwarePushbot
         rightfrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftbackDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightbackDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        topArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bottomArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftArm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightArm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
 
 //        // Define and initialize ALL installed servos.
 //        leftClaw  = hwMap.get(Servo.class, "left_hand");
