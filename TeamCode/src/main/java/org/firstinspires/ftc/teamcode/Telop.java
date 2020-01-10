@@ -14,8 +14,22 @@ public class Telop extends LinearOpMode {
         robot.rightbackDrive.setPower(rightmotors);
         robot.leftbackDrive.setPower(leftmotors);
         robot.leftfrontDrive.setPower(leftmotors);
-        sleep(500);
+        sleep(1000);
     }
+    public void Three_Sixty(double motors){
+        robot.rightfrontDrive.setPower(motors);
+        robot.rightbackDrive.setPower(motors);
+        robot.leftbackDrive.setPower(motors);
+        robot.leftfrontDrive.setPower(motors);
+        sleep(2000);
+    }
+    public void Forward (double leftmotors, double rightmotors ){
+        robot.rightfrontDrive.setPower(rightmotors);
+        robot.rightbackDrive.setPower(rightmotors);
+        robot.leftbackDrive.setPower(leftmotors);
+        robot.leftfrontDrive.setPower(leftmotors);
+    }
+
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
 
 
@@ -28,14 +42,14 @@ public class Telop extends LinearOpMode {
         waitForStart();
         while (!isStopRequested()) {
 
-            double Position = robot.leftArm.getCurrentPosition();
-            double Forward = gamepad1.left_stick_y;
+//            double Position = robot.leftArm.getCurrentPosition();
+            double Forward = -gamepad1.left_stick_y;
             double turning = gamepad1.right_stick_x;
 
             boolean LimitSwitch = robot.limitSwitch.getState();
 
 
-            telemetry.addData("Position:", Position);
+//            telemetry.addData("Position:", Position);
             telemetry.addData("Y-axis:", Forward );
             telemetry.addData("X-axis:", turning );
             telemetry.addData("limitswich",LimitSwitch );
@@ -76,7 +90,9 @@ public class Telop extends LinearOpMode {
             if (gamepad1.left_stick_button){
                 One_eighty(1,-1);
             }
-
+            else if (gamepad1.left_stick_button&&gamepad1.right_stick_button){
+                Three_Sixty(1);
+            }
 
 
 
@@ -93,10 +109,10 @@ public class Telop extends LinearOpMode {
                     robot.clawn.setPosition(0);
                 }
 
-                robot.rightfrontDrive.setPower(Forward-turning);
-                robot.rightbackDrive.setPower(Forward-turning);
-                robot.rightfrontDrive.setPower(Forward+turning);
-                robot.rightbackDrive.setPower(Forward+turning);
+                robot.rightfrontDrive.setPower(-Forward+turning);
+                robot.rightbackDrive.setPower(-Forward+turning);
+                robot.leftfrontDrive.setPower(Forward+turning);
+                robot.leftbackDrive.setPower(Forward+turning);
 
 
 
