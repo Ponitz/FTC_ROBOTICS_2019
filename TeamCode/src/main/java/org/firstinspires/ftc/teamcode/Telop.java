@@ -9,11 +9,19 @@ import java.nio.channels.Pipe;
 @TeleOp(name = "TeleOp", group = "")
 public class Telop extends LinearOpMode {
 
+    public void One_eighty(double leftmotors, double rightmotors){
+        robot.rightfrontDrive.setPower(rightmotors);
+        robot.rightbackDrive.setPower(rightmotors);
+        robot.leftbackDrive.setPower(leftmotors);
+        robot.leftfrontDrive.setPower(leftmotors);
+        sleep(500);
+    }
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
 
 
     @Override
     public void runOpMode() throws InterruptedException {
+
 
         robot.init(hardwareMap);
 
@@ -23,7 +31,9 @@ public class Telop extends LinearOpMode {
             double Position = robot.leftArm.getCurrentPosition();
             double Forward = gamepad1.left_stick_y;
             double turning = gamepad1.right_stick_x;
+
             boolean LimitSwitch = robot.limitSwitch.getState();
+
 
             telemetry.addData("Position:", Position);
             telemetry.addData("Y-axis:", Forward );
@@ -31,44 +41,63 @@ public class Telop extends LinearOpMode {
             telemetry.addData("limitswich",LimitSwitch );
             telemetry.update();
 
-//
-//            if (gamepad1.dpad_up ) {
-//                robot.leftArm.
-//
-//
-////                   robot.leftArm.setPower(.5);
-////                   robot.rightArm.setPower(-.5);
-//                robot.leftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//                robot.rightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//
-//                robot.leftArm.setTargetPosition(0);
-//                robot.leftArm.setTargetPosition(0);
+
+
+
+//            if (gamepad1.dpad_up&&LimitSwitch&gamepad1.left_bumper) {
 //
 //
-////            }else if (Position>3){
-////               break;
 //
-//            }
+//                robot.leftArm.setPower(.2);
+//                robot.rightArm.setPower(-.2);
+//                sleep(1500);
 //
-//
-//            if (gamepad1.dpad_down & robot.leftArm.getTargetPosition() < 1) {
-//
-//                robot.leftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//                robot.rightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+            if (gamepad1.dpad_up&&gamepad1.left_bumper) {
+                robot.leftArm.setPower(.3);
+                robot.rightArm.setPower(-.3);
+            }
+            else if (!LimitSwitch&&!gamepad1.dpad_up) {
+                robot.leftArm.setPower(0);
+                robot.rightArm.setPower(0);
+            }
+            if (gamepad1.dpad_down && !LimitSwitch &&gamepad1.left_bumper){
+                robot.leftArm.setPower(-.2);
+                robot.rightArm.setPower(.2);
+
+            }
+
+
+            else if (LimitSwitch){
+                robot.leftArm.setPower(0);
+                robot.rightArm.setPower(0);
+            }
+
+            if (gamepad1.left_stick_button){
+                One_eighty(1,-1);
+            }
 
 
 
 
-                robot.rightfrontDrive.setPower(Forward + turning);
-                robot.leftfrontDrive.setPower(-Forward + turning);
-                robot.rightbackDrive.setPower(Forward + turning);
-                robot.leftbackDrive.setPower(-Forward + turning);
+
+
+
+
+
+
 
                 if (gamepad1.right_bumper) {
                     robot.clawn.setPosition(.5);
                 } else {
                     robot.clawn.setPosition(0);
                 }
+
+                robot.rightfrontDrive.setPower(Forward-turning);
+                robot.rightbackDrive.setPower(Forward-turning);
+                robot.rightfrontDrive.setPower(Forward+turning);
+                robot.rightbackDrive.setPower(Forward+turning);
+
 
 
             }

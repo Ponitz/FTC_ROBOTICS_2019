@@ -62,7 +62,7 @@ public class HardwarePushbot
     public DcMotor rightfrontDrive = null;
     public DcMotor rightbackDrive = null;
     public Servo clawn = null;
-    DigitalChannel limitSwitch = null;
+    public DigitalChannel limitSwitch = null;
 
 
 
@@ -120,7 +120,7 @@ public class HardwarePushbot
         rightbackDrive.setPower(0);
         rightArm.setPower(0);
         leftArm.setPower(0);
-        clawn.setPosition(0);
+
 
 //        lift.setPower(0);
 
