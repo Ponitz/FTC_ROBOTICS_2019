@@ -62,6 +62,7 @@ public class HardwarePushbot
     public DcMotor rightfrontDrive = null;
     public DcMotor rightbackDrive = null;
     public Servo clawn = null;
+    DigitalChannel limitSwitch = null;
 
 
 
@@ -108,6 +109,7 @@ public class HardwarePushbot
         leftArm =hwMap.get(DcMotor.class,"leftarm");
         rightArm =hwMap.get(DcMotor.class,"rightarm");
         clawn =hwMap.get(Servo.class,"claw");
+        limitSwitch = hwMap.get(DigitalChannel.class, "limit1");
 
 //        limitSwitch = hwMap.get(DigitalChannel.class, "limit1");
 
